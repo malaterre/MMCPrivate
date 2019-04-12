@@ -20,7 +20,41 @@ namespace ApplicationObjects
   [Serializable()]
   public class ImageAppData
   {
-    public int foo {get; set;}
+    public int pAPEFlag;
+    public int antiAliasingMode;
+    public int fOVFilter;
+    public int tuningValue;
+    public int h1Value;
+    public int gain;
+    public int flipAngle2;
+    public int bandWidth;
+    public int h1SpoilValue;
+    public int filterType;
+    public int mTCIrradiatedTime;
+    public int mTCIrradiatedPower;
+    public int mTCOffsetFrequency;
+    public int fatSaturationIrradiatedPower;
+    public int fatSaturationOffsetFrequency;
+    public int flowAxisDirection;
+    public int cardiacGatingCount;
+    public int cardiacGatingSliceOrder;
+    public int truncationArtifactFlag;
+    public int shadingCorrectionFilterFlag;
+    public int shadingCorrectionFilterType;
+    public int shadingCorrectionStrength;
+    public int shadingCorrectionMode;
+    public int fatSaturationPulseKind;
+    public int fSEThetaCorrectionValue;
+    public int dCLevel;
+    public int correctPosition;
+    public int distortionCorrection;
+    public int shadingCorrectionFilter;
+    public int f0Shift;
+    public int t2Correct;
+    public int postScanFrequency;
+    public int fatsepImageType;
+    public int originalFatSepEcho;
+    public int sequenceMode;
   }
 
 public class MM
