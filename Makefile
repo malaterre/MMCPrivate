@@ -1,4 +1,4 @@
-all : App Dump Write
+all : App Dump ApplicationObjects
 
 App : App.cs
 	cli-csc App.cs
@@ -6,5 +6,5 @@ App : App.cs
 Dump : Dump.cs
 	cli-csc Dump.cs
 
-Write : Write.cs
-	cli-csc Write.cs Other.cs
+ApplicationObjects: ApplicationObjects.cs
+	cli-csc ApplicationObjects.cs AssemblyInfo.cs

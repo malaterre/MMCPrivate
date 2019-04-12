@@ -1,12 +1,29 @@
-// https://stackoverflow.com/a/51633221/136285
+using System;
+using System.IO;
+using System.Runtime.Serialization;
+//using System.Runtime.Serialization.Formatters.Soap;
 using System;
 using System.IO;
 using System.Collections;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-using mathieu;
 
-public class PApplicationObjects
+
+namespace HitachiMedical
+{
+namespace Dream
+{
+namespace Cabinet
+{
+namespace ApplicationObjects
+{
+  [Serializable()]
+  public class ImageAppData
+  {
+    public int foo {get; set;}
+  }
+
+public class MM
 {
   [STAThread]
   static void Main() 
@@ -18,8 +35,9 @@ public class PApplicationObjects
   {
       // Create a hashtable of values that will eventually be serialized.
       Hashtable addresses = new Hashtable();
-      Other o = new Other();
+      HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData o = new HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData();
       addresses.Add("HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData", o);
+      //addresses.Add(o, 0);
       //addresses.Add("Jeff", "123 Main Street, Redmond, WA 98052");
       //addresses.Add("Fred", "987 Pine Road, Phila., PA 19116");
       //addresses.Add("Mary", "PO Box 112233, Palo Alto, CA 94301");
@@ -45,4 +63,8 @@ public class PApplicationObjects
           fs.Close();
       }
   }
+}
+}
+}
+}
 }
