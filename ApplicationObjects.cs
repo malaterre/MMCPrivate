@@ -20,7 +20,6 @@ namespace ApplicationObjects
   [Serializable()]
   public class ImageAppData
   {
-    //public ImageAppData() {}
     public string pAPEFlag;
     public Object antiAliasingMode;
     public string fOVFilter;
