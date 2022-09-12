@@ -42,6 +42,7 @@ static void Deserialize()
     // display the key/value pairs.
     foreach (DictionaryEntry de in addresses) 
     {
+            Object o = de.Value;
         Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
     }
 }
