@@ -44,7 +44,7 @@ namespace ApplicationObjects
     public Object shadingCorrectionStrength;
     public Object shadingCorrectionMode;
     public Object fatSaturationPulseKind;
-    public double[] fSEThetaCorrectionValue;
+    public float[] fSEThetaCorrectionValue;
     public string dCLevel;
     public Object correctPosition;
     public Object distortionCorrection;
@@ -96,7 +96,7 @@ public class MM
     o.shadingCorrectionStrength = null;
     o.shadingCorrectionMode = null;
     o.fatSaturationPulseKind = null;
-    o.fSEThetaCorrectionValue = new double[] {0.0,0.0,0.0};
+    o.fSEThetaCorrectionValue = new float[] {0.0f,0.0f,0.0f};
     o.dCLevel = "off";
     o.correctPosition = null;
     o.distortionCorrection = null;
