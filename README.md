@@ -20,6 +20,6 @@ then
 
 Or:
 
-% mono-csc ApplicationObjects.cs ImageAppData.cs AssemblyInfo.cs
+% mono-csc ApplicationObjects.cs ImageAppData.cs AssemblyInfo.cs DicomImagePrivatePS.cs
 
 And then compare output
