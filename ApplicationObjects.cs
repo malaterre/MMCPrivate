@@ -21,29 +21,29 @@ namespace HitachiMedical
                 public class ImageAppData
                 {
                     public string pAPEFlag;
-                    public string antiAliasingMode;
+                    public Object antiAliasingMode;
                     public string fOVFilter;
                     public string tuningValue;
                     public string h1Value;
                     public string gain;
-                    public Object flipAngle2;
-                    public string bandWidth;
-                    public Object h1SpoilValue;
-                    public string filterType;
-                    public Object mTCIrradiatedTime;
-                    public Object mTCIrradiatedPower;
-                    public Object mTCOffsetFrequency;
-                    public string fatSaturationIrradiatedPower;
-                    public string fatSaturationOffsetFrequency;
-                    public Object flowAxisDirection;
-                    public Object cardiacGatingCount;
-                    public Object cardiacGatingSliceOrder;
+                    public Object flipAngle2; // 02
+                    public string bandWidth; // 01
+                    public Object h1SpoilValue; // 02
+                    public Object filterType; // 02
+                    public Object mTCIrradiatedTime; // 02
+                    public Object mTCIrradiatedPower; // 02
+                    public Object mTCOffsetFrequency; // 02
+                    public Object fatSaturationIrradiatedPower; // 02
+                    public Object fatSaturationOffsetFrequency; // 02
+                    public Object flowAxisDirection; // 02
+                    public Object cardiacGatingCount; // 02
+                    public Object cardiacGatingSliceOrder; // 02
                     public string truncationArtifactFlag;
                     public string shadingCorrectionFilterFlag;
                     public string shadingCorrectionFilterType;
-                    public Object shadingCorrectionStrength;
-                    public Object shadingCorrectionMode;
-                    public string fatSaturationPulseKind;
+                    public Object shadingCorrectionStrength;  // 02
+                    public Object shadingCorrectionMode;  // 02
+                    public Object fatSaturationPulseKind;  // 02
                     public float[] fSEThetaCorrectionValue;
                     public string dCLevel;
                     public Object correctPosition;
@@ -63,22 +63,26 @@ namespace HitachiMedical
                     static void Main()
                     {
                         Serialize();
+                        Deserialize();
                     }
 
                     static void Deserialize()
                     {
                         // Declare the hashtable reference.
-                        Hashtable addresses = null;
+                        Hashtable oldObj = null;
+                        Hashtable newObj = null;
 
                         // Open the file containing the data that you want to deserialize.
-                        FileStream fs = new FileStream("input.dat", FileMode.Open);
+                        FileStream oldfs = new FileStream("input.dat", FileMode.Open);
+                        FileStream newfs = new FileStream("DataFile.dat", FileMode.Open);
                         try
                         {
                             BinaryFormatter formatter = new BinaryFormatter();
 
                             // Deserialize the hashtable from the file and 
                             // assign the reference to the local variable.
-                            addresses = (Hashtable)formatter.Deserialize(fs);
+                            oldObj = (Hashtable)formatter.Deserialize(oldfs);
+                            newObj = (Hashtable)formatter.Deserialize(newfs);
                         }
                         catch (SerializationException e)
                         {
@@ -87,12 +91,13 @@ namespace HitachiMedical
                         }
                         finally
                         {
-                            fs.Close();
+                            oldfs.Close();
+                            newfs.Close();
                         }
 
                         // To prove that the table deserialized correctly, 
                         // display the key/value pairs.
-                        foreach (DictionaryEntry de in addresses)
+                        foreach (DictionaryEntry de in oldObj)
                         {
                             Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
                         }
@@ -106,7 +111,7 @@ namespace HitachiMedical
                         //o.pAPEFlag = 321;
                         //o.sequenceMode = "coucou";
                         o.pAPEFlag = "off";
-                        o.antiAliasingMode = null;
+                        o.antiAliasingMode = null; //  new string[] { "coucou" };
                         o.fOVFilter = "off";
                         o.tuningValue = "0";
                         o.h1Value = "146";
