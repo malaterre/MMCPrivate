@@ -63,15 +63,17 @@ namespace ns
         static void SerializeNew()
         {
             // Create a hashtable of values that will eventually be serialized.
-            HitachiMedical.Platform.DataAccess.DicomAccess.DicomImagePrivatePS o = new HitachiMedical.Platform.DataAccess.DicomAccess.DicomImagePrivatePS();
-            o.pAPEFlag = MakeACopy("off");
+            HitachiMedical.Platform.DataAccess.DicomAccess.DicomImagePrivatePS dicomImagePrivatePS = new HitachiMedical.Platform.DataAccess.DicomAccess.DicomImagePrivatePS
+            {
+                pAPEFlag = MakeACopy("off")
+            };
             FileStream fs = new FileStream("DataFile.dat", FileMode.Create);
 
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
-                formatter.Serialize(fs, o);
+                formatter.Serialize(fs, dicomImagePrivatePS);
             }
             catch (SerializationException e)
             {
@@ -87,52 +89,55 @@ namespace ns
         static void Serialize()
         {
             // Create a hashtable of values that will eventually be serialized.
-            Hashtable addresses = new Hashtable(6);
-            HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData o = new HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData();
-            o.pAPEFlag = MakeACopy("off");
-            o.antiAliasingMode = null;
-            o.fOVFilter = MakeACopy("off");
-            o.tuningValue = MakeACopy("0");
-            o.h1Value = MakeACopy("146");
-            o.gain = MakeACopy("14");
-            o.flipAngle2 = null;
-            o.bandWidth = MakeACopy("15.6");
-            o.h1SpoilValue = null;
-            o.filterType = null;
-            o.mTCIrradiatedTime = null;
-            o.mTCIrradiatedPower = null;
-            o.mTCOffsetFrequency = null;
-            o.fatSaturationIrradiatedPower = null;
-            o.fatSaturationOffsetFrequency = null;
-            o.flowAxisDirection = null;
-            o.cardiacGatingCount = null;
-            o.cardiacGatingSliceOrder = null;
-            o.truncationArtifactFlag = MakeACopy("on");
-            o.shadingCorrectionFilterFlag = MakeACopy("s-map");
-            o.shadingCorrectionFilterType = MakeACopy("off");
-            o.shadingCorrectionStrength = null;
-            o.shadingCorrectionMode = null;
-            o.fatSaturationPulseKind = null;
-            o.fSEThetaCorrectionValue = new float[] { 0.0f, 0.0f, 0.0f };
-            o.dCLevel = MakeACopy("off");
-            o.correctPosition = null;
-            o.distortionCorrection = null;
-            o.shadingCorrectionFilter = MakeACopy("s-map,off");
-            o.f0Shift = MakeACopy("0");
-            o.t2Correct = MakeACopy("off");
-            o.postScanFrequency = null;
-            o.fatsepImageType = null;
-            o.originalFatSepEcho = null;
-            o.sequenceMode = null;
+            Hashtable hashtable = new Hashtable(6);
 
-            addresses.Add("HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData", o);
-            FileStream fs = new FileStream("DataFile.dat", FileMode.Create);
+            // the actual imageAppData object
+            HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData imageAppData = new HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData
+            {
+                pAPEFlag = MakeACopy("off"),
+                antiAliasingMode = null,
+                fOVFilter = MakeACopy("off"),
+                tuningValue = MakeACopy("0"),
+                h1Value = MakeACopy("146"),
+                gain = MakeACopy("14"),
+                flipAngle2 = null,
+                bandWidth = MakeACopy("15.6"),
+                h1SpoilValue = null,
+                filterType = null,
+                mTCIrradiatedTime = null,
+                mTCIrradiatedPower = null,
+                mTCOffsetFrequency = null,
+                fatSaturationIrradiatedPower = null,
+                fatSaturationOffsetFrequency = null,
+                flowAxisDirection = null,
+                cardiacGatingCount = null,
+                cardiacGatingSliceOrder = null,
+                truncationArtifactFlag = MakeACopy("on"),
+                shadingCorrectionFilterFlag = MakeACopy("s-map"),
+                shadingCorrectionFilterType = MakeACopy("off"),
+                shadingCorrectionStrength = null,
+                shadingCorrectionMode = null,
+                fatSaturationPulseKind = null,
+                fSEThetaCorrectionValue = new float[] { 0.0f, 0.0f, 0.0f },
+                dCLevel = MakeACopy("off"),
+                correctPosition = null,
+                distortionCorrection = null,
+                shadingCorrectionFilter = MakeACopy("s-map,off"),
+                f0Shift = MakeACopy("0"),
+                t2Correct = MakeACopy("off"),
+                postScanFrequency = null,
+                fatsepImageType = null,
+                originalFatSepEcho = null,
+                sequenceMode = null
+            };
+            hashtable.Add("HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData", imageAppData);
 
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
+            FileStream fs = new FileStream("DataFile.dat", FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
-                formatter.Serialize(fs, addresses);
+                formatter.Serialize(fs, hashtable);
             }
             catch (SerializationException e)
             {
