@@ -23,8 +23,8 @@ namespace ns
             Hashtable newObj = null;
 
             // Open the file containing the data that you want to deserialize.
-            FileStream oldfs = new FileStream("input.dat", FileMode.Open);
-            FileStream newfs = new FileStream("DataFile.dat", FileMode.Open);
+            FileStream oldfs = new FileStream("input.nrb", FileMode.Open);
+            FileStream newfs = new FileStream("DataFile.nrb", FileMode.Open);
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -67,7 +67,7 @@ namespace ns
             {
                 pAPEFlag = MakeACopy("off")
             };
-            FileStream fs = new FileStream("DataFile.dat", FileMode.Create);
+            FileStream fs = new FileStream("DataFile.nrb", FileMode.Create);
 
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
             BinaryFormatter formatter = new BinaryFormatter();
@@ -133,7 +133,7 @@ namespace ns
             hashtable.Add("HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData", imageAppData);
 
             // Construct a BinaryFormatter and use it to serialize the data to the stream.
-            FileStream fs = new FileStream("DataFile.dat", FileMode.Create);
+            FileStream fs = new FileStream("DataFile.nrb", FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
