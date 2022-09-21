@@ -25,20 +25,20 @@ namespace HitachiMedical
                     public string operatingModeLimitation;
                     public FPOLimitationType fpoLimitation;
                     public RFType rf;
-                    public Decimal B1PeakLimit { get; set; }
-                    public Decimal B1RMSLimit { get; set; }
-                    public Decimal DBdtPeakLimit { get; set; }
-                    public Decimal DBdtRMSLimit { get; set; }
-                    public Decimal WholeBodySARLimit { get; set; }
-                    public Decimal PartialBodySARLimit { get; set; }
-                    public Decimal HeadSARLimit { get; set; }
-                    public Decimal DBdtLimit { get; set; }
+                    public decimal B1PeakLimit { get; set; }
+                    public decimal B1RMSLimit { get; set; }
+                    public decimal DBdtPeakLimit { get; set; }
+                    public decimal DBdtRMSLimit { get; set; }
+                    public decimal WholeBodySARLimit { get; set; }
+                    public decimal PartialBodySARLimit { get; set; }
+                    public decimal HeadSARLimit { get; set; }
+                    public decimal DBdtLimit { get; set; }
                 }
 
                 [Serializable()]
                 public class StudyAppData
                 {
-                    public Decimal sarLongTerm;
+                    public decimal sarLongTerm;
                     public object sarLongTermList;
                     public string controlledMode;
                 }
@@ -47,7 +47,7 @@ namespace HitachiMedical
                 public class ImageAppData
                 {
                     public string pAPEFlag;
-                    public object antiAliasingMode;
+                    public string antiAliasingMode;
                     public string fOVFilter;
                     public string tuningValue;
                     public string h1Value;
@@ -55,7 +55,7 @@ namespace HitachiMedical
                     public object flipAngle2;
                     public string bandWidth;
                     public object h1SpoilValue;
-                    public string filterType;
+                    public object /*string*/ filterType;
                     public object mTCIrradiatedTime;
                     public object mTCIrradiatedPower;
                     public object mTCOffsetFrequency;
@@ -81,7 +81,7 @@ namespace HitachiMedical
                     public object fatsepImageType;
                     public object originalFatSepEcho;
                     public object sequenceMode;
-                    public Decimal[] twoDPresatList;
+                    public decimal[] twoDPresatList;
                     public object reconType;
                     public object bsiProcess;
                     public object teEquivalent;
@@ -118,7 +118,7 @@ namespace HitachiMedical
                     public object dbdtRMS;
                     public object dbdtPeak;
                     public object slewPercentage;
-                    public Decimal rapidIP;
+                    public decimal rapidIP;
                     public string rapidIPMode;
                     public float[] magnetDirection;
                 }

@@ -23,62 +23,62 @@ namespace HitachiMedical.Dream.ScanInterface
     [Serializable()]
     public class QualityGuide
     {
-        public Decimal iScanTime;
-        public Decimal iCNR;
-        public Decimal iSNR;
-        public Decimal iSAR;
-        public Decimal iSARLimit;
-        public Decimal iSARLimit2;
-        public Decimal iB1RMS;
-        public Decimal idBdt;
-        public Decimal idBdtLimit;
+        public decimal iScanTime;
+        public decimal iCNR;
+        public decimal iSNR;
+        public decimal iSAR;
+        public decimal iSARLimit;
+        public decimal iSARLimit2;
+        public decimal iB1RMS;
+        public decimal idBdt;
+        public decimal idBdtLimit;
         public Resolution[] iResolutionInfo;
-        public Decimal iB1Peak;
-        public Decimal iDBdtPeak;
-        public Decimal iDBdtRMS;
-        public Decimal iSlewPercentage;
+        public decimal iB1Peak;
+        public decimal iDBdtPeak;
+        public decimal iDBdtRMS;
+        public decimal iSlewPercentage;
     }
     [Serializable()]
     public class PresatPlane
     {
 
         public Position iPos;
-        public Decimal iPresatThickness;
-        public Decimal iPresatIntermittent;
+        public decimal iPresatThickness;
+        public decimal iPresatIntermittent;
     }
     [Serializable()]
     public class ScanPosition
     {
         public string iPlaneName;
         public Position iPos;
-        public Decimal iFOV;
+        public decimal iFOV;
         public string iPhaseDirection;
-        public Decimal iRectangularRatio;
-        public Decimal iAntiAliasingRatio;
-        public Decimal iNumberOfSlices;
+        public decimal iRectangularRatio;
+        public decimal iAntiAliasingRatio;
+        public decimal iNumberOfSlices;
         public string iSliceDirection;
-        public Decimal iSliceInterval;
-        public Decimal iSliceThickness;
+        public decimal iSliceInterval;
+        public decimal iSliceThickness;
     }
     [Serializable()]
     public class Position
     {
-        public Decimal iColumnFH;
-        public Decimal iColumnAP;
-        public Decimal iColumnRL;
-        public Decimal iRowFH;
-        public Decimal iRowAP;
-        public Decimal iRowRL;
-        public Decimal iPositionFH;
-        public Decimal iPositionAP;
-        public Decimal iPositionRL;
+        public decimal iColumnFH;
+        public decimal iColumnAP;
+        public decimal iColumnRL;
+        public decimal iRowFH;
+        public decimal iRowAP;
+        public decimal iRowRL;
+        public decimal iPositionFH;
+        public decimal iPositionAP;
+        public decimal iPositionRL;
     }
     [Serializable()]
     public class Resolution
     {
-        public Decimal iResolutionAP;
-        public Decimal iResolutionRL;
-        public Decimal iResolutionFH;
+        public decimal iResolutionAP;
+        public decimal iResolutionRL;
+        public decimal iResolutionFH;
     }
 
 }

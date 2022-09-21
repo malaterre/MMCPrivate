@@ -6,46 +6,46 @@ namespace HitachiMedical
     {
         namespace Cabinet
         {
-            namespace ApplicationObjects
+            namespace Applicationobjects
             {
                 [Serializable()]
                 public class ImageAppData
                 {
                     public string pAPEFlag;
-                    public Object antiAliasingMode;
+                    public object antiAliasingMode;
                     public string fOVFilter;
                     public string tuningValue;
                     public string h1Value;
                     public string gain;
-                    public Object flipAngle2;
+                    public object flipAngle2;
                     public string bandWidth;
-                    public Object h1SpoilValue;
-                    public Object filterType;
-                    public Object mTCIrradiatedTime;
-                    public Object mTCIrradiatedPower;
-                    public Object mTCOffsetFrequency;
-                    public Object fatSaturationIrradiatedPower;
-                    public Object fatSaturationOffsetFrequency;
-                    public Object flowAxisDirection;
-                    public Object cardiacGatingCount;
-                    public Object cardiacGatingSliceOrder;
+                    public object h1SpoilValue;
+                    public object filterType;
+                    public object mTCIrradiatedTime;
+                    public object mTCIrradiatedPower;
+                    public object mTCOffsetFrequency;
+                    public object fatSaturationIrradiatedPower;
+                    public object fatSaturationOffsetFrequency;
+                    public object flowAxisDirection;
+                    public object cardiacGatingCount;
+                    public object cardiacGatingSliceOrder;
                     public string truncationArtifactFlag;
                     public string shadingCorrectionFilterFlag;
                     public string shadingCorrectionFilterType;
-                    public Object shadingCorrectionStrength;
-                    public Object shadingCorrectionMode;
-                    public Object fatSaturationPulseKind;
+                    public object shadingCorrectionStrength;
+                    public object shadingCorrectionMode;
+                    public object fatSaturationPulseKind;
                     public float[] fSEThetaCorrectionValue;
                     public string dCLevel;
-                    public Object correctPosition;
-                    public Object distortionCorrection;
+                    public object correctPosition;
+                    public object distortionCorrection;
                     public string shadingCorrectionFilter;
                     public string f0Shift;
                     public string t2Correct;
-                    public Object postScanFrequency;
-                    public Object fatsepImageType;
-                    public Object originalFatSepEcho;
-                    public Object sequenceMode;
+                    public object postScanFrequency;
+                    public object fatsepImageType;
+                    public object originalFatSepEcho;
+                    public object sequenceMode;
                 }
             }
         }
