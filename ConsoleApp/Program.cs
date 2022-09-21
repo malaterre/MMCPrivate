@@ -1,6 +1,4 @@
-﻿//extern alias bla;
-
-using System;
+﻿using System;
 using System.Collections;
 using System.IO;
 using System.Runtime.Serialization;
@@ -90,27 +88,47 @@ namespace ConsoleApp
             //Serialize();
             // Console.WriteLine("Hello World!");
             object obj = null;
-            FileStream fs = new FileStream("template2.nrb", FileMode.Open);
-            try
             {
+                FileStream fs = new FileStream("template2.nrb", FileMode.Open);
+                try
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    obj = formatter.Deserialize(fs);
+                }
+                catch (SerializationException e)
+                {
+                    Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                    throw;
+                }
+                finally
+                {
+                    fs.Close();
+                }
+                Console.WriteLine("Debug: " + obj);
+                Hashtable hashtable = (Hashtable)obj;
+                foreach (DictionaryEntry de in hashtable)
+                {
+                    Type type = de.Value.GetType();
+                    Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
+                }
+            }
+            {
+                FileStream fs = new FileStream("debug.nrb", FileMode.Create);
                 BinaryFormatter formatter = new BinaryFormatter();
-                obj = formatter.Deserialize(fs);
-            }
-            catch (SerializationException e)
-            {
-                Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
-                throw;
-            }
-            finally
-            {
-                fs.Close();
-            }
-            Console.WriteLine("Debug: " + obj);
-            Hashtable hashtable = (Hashtable)obj;
-            foreach (DictionaryEntry de in hashtable)
-            {
-                Type type = de.Value.GetType();
-                Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
+                try
+                {
+                    formatter.Serialize(fs, obj);
+                }
+                catch (SerializationException e)
+                {
+                    Console.WriteLine("Failed to serialize. Reason: " + e.Message);
+                    throw;
+                }
+                finally
+                {
+                    fs.Close();
+                }
+
             }
         }
     }

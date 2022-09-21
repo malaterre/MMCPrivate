@@ -20,12 +20,12 @@ namespace HitachiMedical
                     public Object flipAngle2;
                     public string bandWidth;
                     public Object h1SpoilValue;
-                    public Object filterType;
+                    public string filterType;
                     public Object mTCIrradiatedTime;
                     public Object mTCIrradiatedPower;
                     public Object mTCOffsetFrequency;
-                    public Object fatSaturationIrradiatedPower;
-                    public Object fatSaturationOffsetFrequency;
+                    public string fatSaturationIrradiatedPower;
+                    public string fatSaturationOffsetFrequency;
                     public Object flowAxisDirection;
                     public Object cardiacGatingCount;
                     public Object cardiacGatingSliceOrder;
@@ -34,7 +34,7 @@ namespace HitachiMedical
                     public string shadingCorrectionFilterType;
                     public Object shadingCorrectionStrength;
                     public Object shadingCorrectionMode;
-                    public Object fatSaturationPulseKind;
+                    public string fatSaturationPulseKind;
                     public float[] fSEThetaCorrectionValue;
                     public string dCLevel;
                     public Object correctPosition;
@@ -45,6 +45,23 @@ namespace HitachiMedical
                     public Object postScanFrequency;
                     public Object fatsepImageType;
                     public Object originalFatSepEcho;
+                    public Object sequenceMode;
+                    public Decimal[] twoDPresatList;
+                    public Object reconType;
+                    public Object bsiProcess;
+                    public Object teEquivalent;
+                    public Object excitationPulse;
+                    public Object minRFA;
+                    public Object centerRFA;
+                    public Object maxRFA;
+                    public Object gain2;
+                    public Object gainBoundaryPhase;
+                    public Object gainBoundarySlice;
+                    public string actualTablePositionX;
+                    public string actualTablePositionY;
+                    public Object contrastPulse;
+                    public Object flowReduction;
+                    public Object flowReductionLevel;
                 }
             }
         }
