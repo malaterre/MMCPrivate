@@ -45,7 +45,6 @@ namespace HitachiMedical
                     public Object postScanFrequency;
                     public Object fatsepImageType;
                     public Object originalFatSepEcho;
-                    public Object sequenceMode;
                 }
             }
         }
