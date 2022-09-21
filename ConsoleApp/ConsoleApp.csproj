@@ -8,6 +8,8 @@
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
     <ProjectReference Include="..\ClassLibrary3\ClassLibrary3.csproj" />
+    <ProjectReference Include="..\ClassLibrary4\ClassLibrary4.csproj" />
+    <ProjectReference Include="..\ClassLibrary5\ClassLibrary5.csproj" />
   </ItemGroup>
 
 </Project>

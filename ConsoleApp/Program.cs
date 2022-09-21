@@ -87,7 +87,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             //Serialize();
-            string input = "259.1003.raw";
+            string input = "259.10d7.raw";
             string output = "debug.raw";
             if (args.Length > 0)
                 input = args[0];
@@ -128,13 +128,17 @@ namespace ConsoleApp
                     ms.Close();
                 }
                 Console.WriteLine("Debug: " + obj);
-                Hashtable hashtable = (Hashtable)obj;
-                foreach (DictionaryEntry de in hashtable)
+                Console.WriteLine("Type: " + obj.GetType());
+                if (obj is Hashtable)
                 {
-                    //Type type = de.Value.GetType();
-                    //Console.WriteLine("Type: " + type);
-                    //Console.WriteLine("AssemblyQualifiedName: " + type.AssemblyQualifiedName);
-                    Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
+                    Hashtable hashtable = (Hashtable)obj;
+                    foreach (DictionaryEntry de in hashtable)
+                    {
+                        //Type type = de.Value.GetType();
+                        //Console.WriteLine("Type: " + type);
+                        //Console.WriteLine("AssemblyQualifiedName: " + type.AssemblyQualifiedName);
+                        Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
+                    }
                 }
             }
             {
