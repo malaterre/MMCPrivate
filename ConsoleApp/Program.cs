@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -86,14 +87,31 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             //Serialize();
-            // Console.WriteLine("Hello World!");
+            string input = "259.102f.raw";
+            string output = "debug.raw";
+            if (args.Length > 0)
+                input = args[0];
+            if (args.Length > 1)
+                output = args[1];
+            //Console.WriteLine("Process: " + input);
+            byte[] array = File.ReadAllBytes(input);
+            var firstByte = array[0];
+            Debug.Assert(firstByte == 0 || firstByte == 1);
+            var lastByte = array[^1];
+            var offset = lastByte == 0 ? 1 : 0;
+            if (firstByte == 1)
+                Debug.Assert(offset == 1);
             object obj = null;
             {
-                FileStream fs = new FileStream("template2.nrb", FileMode.Open);
+                //FileStream fs = new FileStream(input, FileMode.Open);
+                // Array.Resize(array, array.Length - 1);
+
+                var nrb = array.AsSpan(1, array.Length - offset);
+                MemoryStream ms = new MemoryStream(nrb.ToArray());
                 try
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
-                    obj = formatter.Deserialize(fs);
+                    obj = formatter.Deserialize(ms);
                 }
                 catch (SerializationException e)
                 {
@@ -102,22 +120,30 @@ namespace ConsoleApp
                 }
                 finally
                 {
-                    fs.Close();
+                    ms.Close();
                 }
                 Console.WriteLine("Debug: " + obj);
                 Hashtable hashtable = (Hashtable)obj;
                 foreach (DictionaryEntry de in hashtable)
                 {
-                    Type type = de.Value.GetType();
+                    //Type type = de.Value.GetType();
+                    //Console.WriteLine("Type: " + type);
+                    //Console.WriteLine("AssemblyQualifiedName: " + type.AssemblyQualifiedName);
                     Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
                 }
             }
             {
-                FileStream fs = new FileStream("debug.nrb", FileMode.Create);
+                FileStream fs = new FileStream(output, FileMode.Create);
+                if (offset == 1)
+                    fs.WriteByte(1);
+                else
+                    fs.WriteByte(0);
                 BinaryFormatter formatter = new BinaryFormatter();
                 try
                 {
                     formatter.Serialize(fs, obj);
+                    if (offset == 1)
+                        fs.WriteByte(0);
                 }
                 catch (SerializationException e)
                 {
