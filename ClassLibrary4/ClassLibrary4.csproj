@@ -6,4 +6,8 @@
     <Version>1.0.5611.23591</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary5\ClassLibrary5.csproj" />
+  </ItemGroup>
+
 </Project>
