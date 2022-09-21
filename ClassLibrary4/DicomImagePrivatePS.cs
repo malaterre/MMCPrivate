@@ -13,6 +13,10 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
     [Serializable()]
     public class PrivateAnnotation { }
     [Serializable()]
+    public class DicomImageCount { }
+    [Serializable()]
+    public class DicomSeriesCount { }
+    [Serializable()]
     public class PrivateBackgroundImage { }
     [Serializable()]
     public class PrivateInsetPS { }

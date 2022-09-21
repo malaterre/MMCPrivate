@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>Platform.DicomAccess</AssemblyName>
-    <Version>1.0.5611.23591</Version>
+    <Version>1.0.6639.20178</Version>
   </PropertyGroup>
 
   <ItemGroup>

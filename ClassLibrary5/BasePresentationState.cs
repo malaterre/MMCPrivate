@@ -6,7 +6,7 @@ namespace HitachiMedical.Platform.DataAccess.DataObject
     public class BasePresentationState
     {
         [Serializable()]
-        public sealed class OutputColorType
+        public class OutputColorType
         {
             public int value__;
         }
