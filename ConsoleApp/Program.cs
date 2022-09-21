@@ -87,7 +87,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             //Serialize();
-            string input = "259.102f.raw";
+            string input = "259.1003.raw";
             string output = "debug.raw";
             if (args.Length > 0)
                 input = args[0];
@@ -101,12 +101,17 @@ namespace ConsoleApp
             var offset = lastByte == 0 ? 1 : 0;
             if (firstByte == 1)
                 Debug.Assert(offset == 1);
+            var nrb = array.AsSpan(1, array.Length - 1 - offset);
+            {
+                // prepare debug:
+                FileStream fs = new FileStream(input+ ".nrb", FileMode.Create);
+                fs.Write(nrb);
+                fs.Close();
+            }
             object obj = null;
             {
                 //FileStream fs = new FileStream(input, FileMode.Open);
                 // Array.Resize(array, array.Length - 1);
-
-                var nrb = array.AsSpan(1, array.Length - offset);
                 MemoryStream ms = new MemoryStream(nrb.ToArray());
                 try
                 {
@@ -133,25 +138,32 @@ namespace ConsoleApp
                 }
             }
             {
-                FileStream fs = new FileStream(output, FileMode.Create);
-                if (offset == 1)
-                    fs.WriteByte(1);
-                else
-                    fs.WriteByte(0);
+                MemoryStream ms = new MemoryStream();
                 BinaryFormatter formatter = new BinaryFormatter();
                 try
                 {
-                    formatter.Serialize(fs, obj);
-                    if (offset == 1)
-                        fs.WriteByte(0);
+                    formatter.Serialize(ms, obj);
                 }
                 catch (SerializationException e)
                 {
                     Console.WriteLine("Failed to serialize. Reason: " + e.Message);
                     throw;
                 }
-                finally
+
                 {
+                    FileStream fs = new FileStream(output, FileMode.Create);
+                    if (offset == 1)
+                        fs.WriteByte(1);
+                    else
+                        fs.WriteByte(0);
+                    ms.WriteTo(fs);
+                    if (offset == 1)
+                        fs.WriteByte(0);
+                    fs.Close();
+                }
+                {
+                    FileStream fs = new FileStream(output + ".nrb", FileMode.Create);
+                    ms.WriteTo(fs);
                     fs.Close();
                 }
 

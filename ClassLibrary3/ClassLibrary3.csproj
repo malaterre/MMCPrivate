@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>scanmanagement</AssemblyName>
+    <Version>1.0.5611.23631</Version>
+  </PropertyGroup>
+
+</Project>
