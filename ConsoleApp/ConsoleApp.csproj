@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,8 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
     <ProjectReference Include="..\ClassLibrary3\ClassLibrary3.csproj" />
-    <ProjectReference Include="..\ClassLibrary4\ClassLibrary4.csproj" />
-    <ProjectReference Include="..\ClassLibrary5\ClassLibrary5.csproj" />
+    <ProjectReference Include="..\ClassLibrary4\Platform.DicomAccess.csproj" />
     <ProjectReference Include="..\ClassLibrary6\ClassLibrary6.csproj" />
   </ItemGroup>
 

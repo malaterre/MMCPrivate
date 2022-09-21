@@ -11,11 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary2", "ClassLibra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary3", "ClassLibrary3\ClassLibrary3.csproj", "{B139879B-A310-4F68-8541-C02E5D3FAD78}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary4", "ClassLibrary4\ClassLibrary4.csproj", "{54D9A48F-0D26-4D5B-A0C6-786A607DA811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.DicomAccess", "ClassLibrary4\Platform.DicomAccess.csproj", "{54D9A48F-0D26-4D5B-A0C6-786A607DA811}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary5", "ClassLibrary5\ClassLibrary5.csproj", "{576EA898-C0C6-4D88-B293-40CE174FAF03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.DataObject", "ClassLibrary5\Platform.DataObject.csproj", "{576EA898-C0C6-4D88-B293-40CE174FAF03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary6", "ClassLibrary6\ClassLibrary6.csproj", "{5286CA38-3E54-45EE-B309-E9623B72F5C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary6", "ClassLibrary6\ClassLibrary6.csproj", "{5286CA38-3E54-45EE-B309-E9623B72F5C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
