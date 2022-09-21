@@ -1,4 +1,4 @@
-﻿extern alias bla;
+﻿//extern alias bla;
 
 using System;
 using System.Collections;
@@ -12,6 +12,7 @@ namespace ConsoleApp
 {
     class Program
     {
+        /*
         static string MakeACopy(string input)
         {
             StringBuilder sb = new StringBuilder();
@@ -82,13 +83,14 @@ namespace ConsoleApp
                 fs.Close();
             }
         }
+        */
 
         static void Main(string[] args)
         {
-            Serialize();
+            //Serialize();
             // Console.WriteLine("Hello World!");
             object obj = null;
-            FileStream fs = new FileStream("template.nrb", FileMode.Open);
+            FileStream fs = new FileStream("template2.nrb", FileMode.Open);
             try
             {
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -104,6 +106,12 @@ namespace ConsoleApp
                 fs.Close();
             }
             Console.WriteLine("Debug: " + obj);
+            Hashtable hashtable = (Hashtable)obj;
+            foreach (DictionaryEntry de in hashtable)
+            {
+                Type type = de.Value.GetType();
+                Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
+            }
         }
     }
 }

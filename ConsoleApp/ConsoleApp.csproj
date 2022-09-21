@@ -5,11 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
-    <ProjectReference Include="..\ClassLibrary2\Toto.csproj">
-      <Aliases>bla</Aliases>
-    </ProjectReference>
-  </ItemGroup>
-
 </Project>

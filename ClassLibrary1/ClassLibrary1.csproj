@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyVersion>1.0.4073.26997</AssemblyVersion>
+    <AssemblyVersion>1.0.5611.23583</AssemblyVersion>
     <PackageId>FooBar</PackageId>
+    <AssemblyName>ApplicationObjects</AssemblyName>
   </PropertyGroup>
 
 </Project>
