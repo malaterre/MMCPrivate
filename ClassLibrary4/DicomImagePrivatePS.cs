@@ -13,9 +13,14 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
     [Serializable()]
     public class PrivateAnnotation { }
     [Serializable()]
-    public class DicomImageCount { }
+    public class DicomSeriesCount
+    {
+        public int seriesCount;
+    }
     [Serializable()]
-    public class DicomSeriesCount { }
+    public class DicomImageCount {
+        public int imageCount;
+    }
     [Serializable()]
     public class PrivateBackgroundImage { }
     [Serializable()]
@@ -62,6 +67,7 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
         public float resize3dPrecentageEnable;
         public bool isResize3dPrecentageEnable;
         public byte[] appData;
+        public object incompatibleAppData;
     }
 
 }

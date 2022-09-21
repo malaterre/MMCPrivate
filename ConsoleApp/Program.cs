@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
-
+using System.Text.Json;
 
 namespace ConsoleApp
 {
@@ -87,7 +87,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             //Serialize();
-            string input = "100.1021.raw";
+            string input = "100.1050.raw";
             string output = "debug.raw";
             if (args.Length > 0)
                 input = args[0];
@@ -140,12 +140,17 @@ namespace ConsoleApp
                         Console.WriteLine("{0} lives at {1}.", de.Key, de.Value);
                     }
                 }
+                {
+                    var options = new JsonSerializerOptions { WriteIndented = true };
+                    string jsonString = JsonSerializer.Serialize(obj, options);
+                    File.WriteAllText(input + ".json", jsonString);
+                }
             }
             {
                 MemoryStream ms = new MemoryStream();
-                BinaryFormatter formatter = new BinaryFormatter();
                 try
                 {
+                    BinaryFormatter formatter = new BinaryFormatter();
                     formatter.Serialize(ms, obj);
                 }
                 catch (SerializationException e)
@@ -170,7 +175,26 @@ namespace ConsoleApp
                     ms.WriteTo(fs);
                     fs.Close();
                 }
-
+                {
+                    FileStream fs = new FileStream(output + ".nrb", FileMode.Open);
+                    try
+                    {
+                        BinaryFormatter formatter = new BinaryFormatter();
+                        obj = formatter.Deserialize(fs);
+                    }
+                    catch (SerializationException e)
+                    {
+                        Console.WriteLine("Failed to deserialize. Reason: " + e.Message);
+                        throw;
+                    }
+                    finally
+                    {
+                        fs.Close();
+                    }
+                    var options = new JsonSerializerOptions { WriteIndented = true };
+                    string jsonString = JsonSerializer.Serialize(obj, options);
+                    File.WriteAllText(output + ".json", jsonString);
+                }
             }
         }
     }

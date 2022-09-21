@@ -9,59 +9,95 @@ namespace HitachiMedical
             namespace ApplicationObjects
             {
                 [Serializable()]
+                public class StudyAppData { }
+                [Serializable()]
+                public class StudyReservationInfo
+                {
+                    [Serializable()]
+                    public class RFType { }
+                    [Serializable()]
+                    public class FPOLimitationType { }
+                }
+
+
+                [Serializable()]
                 public class ImageAppData
                 {
                     public string pAPEFlag;
-                    public Object antiAliasingMode;
+                    public object antiAliasingMode;
                     public string fOVFilter;
                     public string tuningValue;
                     public string h1Value;
                     public string gain;
-                    public Object flipAngle2;
+                    public object flipAngle2;
                     public string bandWidth;
-                    public Object h1SpoilValue;
+                    public object h1SpoilValue;
                     public string filterType;
-                    public Object mTCIrradiatedTime;
-                    public Object mTCIrradiatedPower;
-                    public Object mTCOffsetFrequency;
+                    public object mTCIrradiatedTime;
+                    public object mTCIrradiatedPower;
+                    public object mTCOffsetFrequency;
                     public string fatSaturationIrradiatedPower;
                     public string fatSaturationOffsetFrequency;
-                    public Object flowAxisDirection;
-                    public Object cardiacGatingCount;
-                    public Object cardiacGatingSliceOrder;
+                    public object flowAxisDirection;
+                    public object cardiacGatingCount;
+                    public object cardiacGatingSliceOrder;
                     public string truncationArtifactFlag;
                     public string shadingCorrectionFilterFlag;
                     public string shadingCorrectionFilterType;
-                    public Object shadingCorrectionStrength;
-                    public Object shadingCorrectionMode;
+                    public object shadingCorrectionStrength;
+                    public object shadingCorrectionMode;
                     public string fatSaturationPulseKind;
                     public float[] fSEThetaCorrectionValue;
                     public string dCLevel;
-                    public Object correctPosition;
-                    public Object distortionCorrection;
+                    public object correctPosition;
+                    public object distortionCorrection;
                     public string shadingCorrectionFilter;
                     public string f0Shift;
                     public string t2Correct;
-                    public Object postScanFrequency;
-                    public Object fatsepImageType;
-                    public Object originalFatSepEcho;
-                    public Object sequenceMode;
+                    public object postScanFrequency;
+                    public object fatsepImageType;
+                    public object originalFatSepEcho;
+                    public object sequenceMode;
                     public Decimal[] twoDPresatList;
-                    public Object reconType;
-                    public Object bsiProcess;
-                    public Object teEquivalent;
-                    public Object excitationPulse;
-                    public Object minRFA;
-                    public Object centerRFA;
-                    public Object maxRFA;
-                    public Object gain2;
-                    public Object gainBoundaryPhase;
-                    public Object gainBoundarySlice;
+                    public object reconType;
+                    public object bsiProcess;
+                    public object teEquivalent;
+                    public object excitationPulse;
+                    public object minRFA;
+                    public object centerRFA;
+                    public object maxRFA;
+                    public object gain2;
+                    public object gainBoundaryPhase;
+                    public object gainBoundarySlice;
                     public string actualTablePositionX;
                     public string actualTablePositionY;
-                    public Object contrastPulse;
-                    public Object flowReduction;
-                    public Object flowReductionLevel;
+                    public object sarShortTerm;
+                    public object sarMiddleTerm;
+                    public object controlledMode;
+                    public string contrastPulse;
+                    public object flowReduction;
+                    public object flowReductionLevel;
+                    public object verse;
+                    public object lowSAR;
+                    public string rfShimMode;
+                    public float[] transmitAmplifier;
+                    public float[] transmitPhase;
+                    public object fatSepStrength;
+                    public string rapidMode;
+                    public object asl;
+                    public string vividImage;
+                    public string noiseCorrectType;
+                    public object numSpectralBins;
+                    public object binNumber;
+                    public object mars;
+                    public string b1RMS;
+                    public object b1Peak;
+                    public object dbdtRMS;
+                    public object dbdtPeak;
+                    public object slewPercentage;
+                    public Decimal rapidIP;
+                    public string rapidIPMode;
+                    public float[] magnetDirection;
                 }
             }
         }
