@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary2\ApplicationObjects.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
+    <ProjectReference Include="..\ClassLibrary2\Toto.csproj">
+      <Aliases>bla</Aliases>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>

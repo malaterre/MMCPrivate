@@ -1,9 +1,12 @@
-﻿using System;
+﻿extern alias bla;
+
+using System;
 using System.Collections;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+
 
 namespace ConsoleApp
 {
@@ -21,7 +24,7 @@ namespace ConsoleApp
             Hashtable hashtable = new Hashtable(6);
 
             // the actual imageAppData object
-            HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData imageAppData = new HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData
+            bla::HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData imageAppData = new bla::HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData
             {
                 pAPEFlag = MakeACopy("off"),
                 antiAliasingMode = null,

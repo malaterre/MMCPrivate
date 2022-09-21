@@ -1,10 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyVersion>1.0.4073.26998</AssemblyVersion>
     <Version>1.0.4073.26998</Version>
     <FileVersion>1.0.0.0</FileVersion>
+    <PackageId>ApplicationObjects</PackageId>
+    <AssemblyName>ApplicationObjects</AssemblyName>
   </PropertyGroup>
 
 </Project>
