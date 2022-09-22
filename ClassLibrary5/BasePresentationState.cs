@@ -6,18 +6,18 @@ namespace HitachiMedical.Platform.DataAccess.DataObject
     public class BasePresentationState
     {
         [Serializable()]
-        public class OutputColorType
+        public struct OutputColorType
         {
             public int value__;
         }
 
         [Serializable()]
-        public class DisplayLocation
+        public struct DisplayLocation
         {
             public int value__;
         }
         [Serializable()]
-        public class OrientationMarkerPositions
+        public struct OrientationMarkerPositions
         {
             public int value__;
         }

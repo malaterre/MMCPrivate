@@ -4,15 +4,24 @@ using System.Collections;
 namespace HitachiMedical.Dream.ScanInterface
 {
     [Serializable()]
-    public class ScanParamArchive
-    {
-
-        public Hashtable parameterTable;
-    }
-    [Serializable()]
     public class GroupParamArchive
     {
         public Hashtable parameterTable;
+        public GroupParamArchive()
+        {
+            parameterTable = new Hashtable(11);
+        }
+    }
+    [Serializable()]
+    public class ScanParamArchive
+    {
+        public Hashtable parameterTable;
+        public Hashtable GetParameterTable() { return parameterTable;  }
+        /*
+        public ScanParamArchive()
+        {
+            parameterTable = new Hashtable(464);
+        }*/
     }
     [Serializable()]
     public class AslPerfusionPosition { }
