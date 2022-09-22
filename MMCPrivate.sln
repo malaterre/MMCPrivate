@@ -5,15 +5,15 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{8CD7DBE0-4210-4129-9051-99A5ACB97396}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{80014625-ACAD-42B7-B839-9C13E6045EC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationObjects", "ClassLibrary1\ApplicationObjects.csproj", "{80014625-ACAD-42B7-B839-9C13E6045EC0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary3", "ClassLibrary3\ClassLibrary3.csproj", "{B139879B-A310-4F68-8541-C02E5D3FAD78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "scanmanagement", "ClassLibrary3\scanmanagement.csproj", "{B139879B-A310-4F68-8541-C02E5D3FAD78}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.DicomAccess", "ClassLibrary4\Platform.DicomAccess.csproj", "{54D9A48F-0D26-4D5B-A0C6-786A607DA811}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.DataObject", "ClassLibrary5\Platform.DataObject.csproj", "{576EA898-C0C6-4D88-B293-40CE174FAF03}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary6", "ClassLibrary6\ClassLibrary6.csproj", "{5286CA38-3E54-45EE-B309-E9623B72F5C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanInterface", "ClassLibrary6\ScanInterface.csproj", "{5286CA38-3E54-45EE-B309-E9623B72F5C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
