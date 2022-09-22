@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace HitachiMedical.Dream.ScanInterface
 {
     [Serializable()]
     public class GroupParamArchive
     {
-        public Hashtable parameterTable;
+        private Hashtable parameterTable;
         public GroupParamArchive()
         {
             parameterTable = new Hashtable(11);
@@ -16,12 +15,12 @@ namespace HitachiMedical.Dream.ScanInterface
     [Serializable()]
     public class ScanParamArchive
     {
-        public Hashtable parameterTable;
+        private Hashtable parameterTable;
         //public Hashtable GetParameterTable() { return parameterTable;  }
         
         public ScanParamArchive()
         {
-            parameterTable = new Hashtable(11);
+            parameterTable = new Hashtable(464);
             //parameterTable = new SortedDictionary<string, object>();
         }
     }
