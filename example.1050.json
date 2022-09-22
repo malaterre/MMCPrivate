@@ -1,0 +1,25 @@
+{
+  "HitachiMedical.Dream.ScanManagement.ScanedCountInfo": {},
+  "HitachiMedical.Dream.Cabinet.ApplicationObjects.StudyAppData": {
+    "sarLongTerm": -79228162514264337593543950335,
+    "sarLongTermList": null,
+    "controlledMode": "NormalMode"
+  },
+  "HitachiMedical.Dream.Cabinet.ApplicationObjects.StudyReservationInfo": {
+    "B1PeakLimit": -1,
+    "B1RMSLimit": -1,
+    "DBdtPeakLimit": -1,
+    "DBdtRMSLimit": -1,
+    "WholeBodySARLimit": -1,
+    "PartialBodySARLimit": -1,
+    "HeadSARLimit": -1,
+    "DBdtLimit": -1,
+    "operatingModeLimitation": "PermitFirstLevelMode",
+    "fpoLimitation": {
+      "value__": 2
+    },
+    "rf": {
+      "value__": 1
+    }
+  }
+}

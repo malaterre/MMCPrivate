@@ -1,0 +1,65 @@
+{
+  "privateMainPSList": [
+    {
+      "privateAnnotationList": [],
+      "privateBkImageList": [],
+      "insetPSUidList": [
+        "1.2.392.200036.9123.100.12.12.34162.1234567890873127",
+        "1.2.392.200036.9123.100.12.12.34162.1234567890885263",
+        "1.2.392.200036.9123.100.12.12.34162.1234567890959839"
+      ],
+      "sopClassUid": "",
+      "sopInstanceUid": "",
+      "outputColor": {
+        "value__": 2
+      },
+      "imageDisplaySettingUid": "",
+      "caliperPosition": {
+        "value__": 0
+      },
+      "markerPosition": {
+        "value__": 15
+      },
+      "expandToDisplay": false,
+      "windowWidth": -3.402823E+38,
+      "windowLevel": -3.402823E+38,
+      "displayWindowWidth": 1000,
+      "displayWindowLevel": 500,
+      "nonLinearWidth": null,
+      "nonLinearLevel": null,
+      "topLeftHandCorner": {
+        "IsEmpty": true,
+        "X": 0,
+        "Y": 0
+      },
+      "bottomRightHandCorner": {
+        "IsEmpty": true,
+        "X": 0,
+        "Y": 0
+      },
+      "whiteSuppression": false,
+      "invertGrayscale": false,
+      "rotationAngle": 0,
+      "horizontalFlip": false,
+      "verticalFlip": false,
+      "horizontalShift": 0,
+      "verticalShift": 0,
+      "resizePercentage": 100,
+      "clipRegion": false,
+      "gridSpacing": 0,
+      "crossbarInterval": 0,
+      "isCrossScaleEditable": true,
+      "isGrayScalebarDisplayed": false,
+      "filterTypes": null,
+      "colorFraction": null,
+      "colorValues": null,
+      "imageText": null,
+      "crossScalePosition": null,
+      "resize3dPrecentageEnable": 100,
+      "isResize3dPrecentageEnable": false,
+      "appData": null,
+      "incompatibleAppData": null
+    }
+  ],
+  "privateInsetPSList": []
+}

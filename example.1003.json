@@ -1,0 +1,8 @@
+{
+  "HitachiMedical.Platform.DataAccess.DicomAccess.DicomImageCount": {
+    "imageCount": 9
+  },
+  "HitachiMedical.Platform.DataAccess.DicomAccess.DicomSeriesCount": {
+    "seriesCount": 3
+  }
+}
