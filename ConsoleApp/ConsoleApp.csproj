@@ -11,6 +11,7 @@
     <ProjectReference Include="..\ClassLibrary3\scanmanagement.csproj" />
     <ProjectReference Include="..\ClassLibrary4\Platform.DicomAccess.csproj" />
     <ProjectReference Include="..\ClassLibrary6\ScanInterface.csproj" />
+    <ProjectReference Include="..\ClassLibrary7\Visualization.csproj" />
   </ItemGroup>
 
 </Project>

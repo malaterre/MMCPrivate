@@ -88,7 +88,6 @@ namespace HitachiMedical
                     public float[] magnetDirection;
                 }
 
-
                 [Serializable()]
                 public class StudyReservationInfo
                 {

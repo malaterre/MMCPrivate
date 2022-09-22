@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Visualization</AssemblyName>
+    <Version>1.0.6639.20174</Version>
+  </PropertyGroup>
+
+</Project>

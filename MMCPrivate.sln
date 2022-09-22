@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.DataObject", "Clas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScanInterface", "ClassLibrary6\ScanInterface.csproj", "{5286CA38-3E54-45EE-B309-E9623B72F5C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visualization", "ClassLibrary7\Visualization.csproj", "{AC20CC2D-C165-42DB-B3FF-1590FEA7B64C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{5286CA38-3E54-45EE-B309-E9623B72F5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5286CA38-3E54-45EE-B309-E9623B72F5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5286CA38-3E54-45EE-B309-E9623B72F5C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC20CC2D-C165-42DB-B3FF-1590FEA7B64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC20CC2D-C165-42DB-B3FF-1590FEA7B64C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC20CC2D-C165-42DB-B3FF-1590FEA7B64C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC20CC2D-C165-42DB-B3FF-1590FEA7B64C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

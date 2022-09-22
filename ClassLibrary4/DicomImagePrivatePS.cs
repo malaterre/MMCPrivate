@@ -1,6 +1,10 @@
 ﻿using HitachiMedical.Platform.DataAccess.DataObject;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json.Serialization;
 
 namespace HitachiMedical.Platform.DataAccess.DicomAccess
 {
@@ -106,7 +110,26 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
         public object crossScalePosition;
         public float resize3dPrecentageEnable;
         public bool isResize3dPrecentageEnable;
-        public byte[] appData;
+        private object /*byte[]*/ appData;
+        public void run()
+        {
+            byte[] data = appData as byte[];
+            BinaryFormatter formatter = new BinaryFormatter();
+            MemoryStream ms = new MemoryStream(data);
+            object obj = formatter.Deserialize(ms);
+            //Debug.Assert(false);
+        }
+        [JsonPropertyName("appData")]
+        public object MyAppData
+        {
+            get {
+                byte[] data = appData as byte[];
+                BinaryFormatter formatter = new BinaryFormatter();
+                MemoryStream ms = new MemoryStream(data);
+                object obj = formatter.Deserialize(ms);
+                return obj;
+            }
+        }
         public object incompatibleAppData;
     }
 

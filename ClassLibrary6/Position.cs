@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 
 namespace HitachiMedical.Dream.ScanInterface
 {
@@ -16,5 +15,4 @@ namespace HitachiMedical.Dream.ScanInterface
         public decimal iPositionAP;
         public decimal iPositionRL;
     }
-
 }

@@ -1,4 +1,5 @@
 ﻿using HitachiMedical.Dream.ScanInterface;
+using HitachiMedical.Platform.DataAccess.DicomAccess;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -108,7 +109,7 @@ namespace ConsoleApp
             static void Main(string[] args)
         {
             //Serialize();
-            string input = "100.1021.raw";
+            string input = "1.10d7.raw";
             string output = "debug.raw";
             if (args.Length > 0)
                 input = args[0];
@@ -270,6 +271,24 @@ namespace ConsoleApp
                     }*/
 
                 }
+                // check:
+                long inputNrb = new FileInfo(input + ".nrb").Length;
+                long outputNrb = new FileInfo(output + ".nrb").Length;
+                DicomImagePrivatePS debug = oldObj as DicomImagePrivatePS;
+                var dbg2 = debug.privateMainPSList[0];
+                dbg2.run();
+                {
+                    var vizObj = dbg2.MyAppData;
+                    FileStream fs = new FileStream("viz.debug.nrb", FileMode.Create);
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fs, vizObj);
+                    fs.Close();
+                }
+
+                //debug.run();
+
+
+                Debug.Assert(inputNrb == outputNrb);
             }
         }
     }
