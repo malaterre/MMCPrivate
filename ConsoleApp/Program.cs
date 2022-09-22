@@ -109,7 +109,7 @@ namespace ConsoleApp
             static void Main(string[] args)
         {
             //Serialize();
-            string input = "233.102f.raw";
+            string input = "256.102f.raw";
             string output = "debug.raw";
             if (args.Length > 0)
                 input = args[0];
