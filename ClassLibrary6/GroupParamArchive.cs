@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace HitachiMedical.Dream.ScanInterface
 {
@@ -16,12 +17,13 @@ namespace HitachiMedical.Dream.ScanInterface
     public class ScanParamArchive
     {
         public Hashtable parameterTable;
-        public Hashtable GetParameterTable() { return parameterTable;  }
-        /*
+        //public Hashtable GetParameterTable() { return parameterTable;  }
+        
         public ScanParamArchive()
         {
-            parameterTable = new Hashtable(464);
-        }*/
+            parameterTable = new Hashtable(11);
+            //parameterTable = new SortedDictionary<string, object>();
+        }
     }
     [Serializable()]
     public class AslPerfusionPosition { }
