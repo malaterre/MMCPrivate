@@ -47,8 +47,13 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
         public bool isResize3dPrecentageEnable;
         public Hashtable appData;
         public object incompatibleAppData;
+
+        private int memberCount;
         protected PrivateInsetPS(SerializationInfo info, StreamingContext context)
         {
+            memberCount = info.MemberCount;
+            Debug.Assert(memberCount == 36 || memberCount == 37);
+
             // TODO: SerializationInfoEnumerator GetEnumerator();
             sopClassUid = info.GetString("sopClassUid");
             sopInstanceUid = info.GetString("sopInstanceUid");
@@ -99,7 +104,8 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
                 Debug.Assert(tmp == null);
                 appData = null;
             }
-            incompatibleAppData = info.GetValue("incompatibleAppData", typeof(object));
+            if (memberCount > 36)
+                incompatibleAppData = info.GetValue("incompatibleAppData", typeof(object));
         }
         void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -152,7 +158,8 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
                 Debug.Assert(appData == null);
                 info.AddValue("appData", null);
             }
-            info.AddValue("incompatibleAppData", incompatibleAppData);
+            if (memberCount > 36)
+                info.AddValue("incompatibleAppData", incompatibleAppData);
         }
     }
 }
