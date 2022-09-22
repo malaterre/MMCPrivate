@@ -9,6 +9,13 @@ namespace HitachiMedical
             namespace ApplicationObjects
             {
                 [Serializable()]
+                public class StudyAppData
+                {
+                    public decimal sarLongTerm;
+                    public object sarLongTermList;
+                    public string controlledMode;
+                }
+                [Serializable()]
                 public class StudyReservationInfo
                 {
                     [Serializable()]
@@ -16,12 +23,12 @@ namespace HitachiMedical
                     {
                         public int value__;
                     }
+
                     [Serializable()]
                     public class FPOLimitationType
                     {
                         public int value__;
                     }
-
                     public string operatingModeLimitation;
                     public FPOLimitationType fpoLimitation;
                     public RFType rf;
@@ -35,13 +42,6 @@ namespace HitachiMedical
                     public decimal DBdtLimit { get; set; }
                 }
 
-                [Serializable()]
-                public class StudyAppData
-                {
-                    public decimal sarLongTerm;
-                    public object sarLongTermList;
-                    public string controlledMode;
-                }
 
                 [Serializable()]
                 public class ImageAppData
