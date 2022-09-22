@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json.Serialization;
 
 namespace HitachiMedical.Platform.DataAccess.DicomAccess
 {
@@ -52,8 +53,18 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
         public Hashtable appData;
         public object incompatibleAppData;
 
+        //[JsonIgnore]
+        private int memberCount;
+
+        static string v1 = "Platform.DicomAccess, Version=1.0.6639.20178, Culture=neutral, PublicKeyToken=null";
         protected PrivateMainPS(SerializationInfo info, StreamingContext context)
         {
+            // assembly name is the one compiled, not the one being read
+            string assemblyName = info.AssemblyName;
+            Debug.Assert(assemblyName.Equals(v1));
+            memberCount = info.MemberCount;
+            Debug.Assert(memberCount == 39 || memberCount == 40);
+
             // TODO: SerializationInfoEnumerator GetEnumerator();
             privateAnnotationList = (PrivateAnnotation[])info.GetValue("privateAnnotationList", typeof(PrivateAnnotation[]));
             privateBkImageList = (PrivateBackgroundImage[])info.GetValue("privateBkImageList", typeof(PrivateBackgroundImage[]));
@@ -107,7 +118,10 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
                 Debug.Assert(tmp == null);
                 appData = null;
             }
-            incompatibleAppData = info.GetValue("incompatibleAppData", typeof(object));
+            if (memberCount > 39)
+            {
+                incompatibleAppData = info.GetValue("incompatibleAppData", typeof(object));
+            }
         }
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
@@ -163,7 +177,8 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
                 Debug.Assert(appData == null);
                 info.AddValue("appData", null);
             }
-            info.AddValue("incompatibleAppData", incompatibleAppData);
+            if (memberCount > 39)
+                info.AddValue("incompatibleAppData", incompatibleAppData);
         }
     }
 }
