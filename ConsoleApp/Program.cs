@@ -109,7 +109,7 @@ namespace ConsoleApp
             static void Main(string[] args)
         {
             //Serialize();
-            string input = "1.10d7.raw";
+            string input = "267.10d7.raw";
             string output = "debug.raw";
             if (args.Length > 0)
                 input = args[0];
@@ -274,8 +274,6 @@ namespace ConsoleApp
                 // check:
                 long inputNrb = new FileInfo(input + ".nrb").Length;
                 long outputNrb = new FileInfo(output + ".nrb").Length;
-                DicomImagePrivatePS debug = oldObj as DicomImagePrivatePS;
-                var dbg2 = debug.privateMainPSList[0];
                 Debug.Assert(inputNrb == outputNrb);
             }
         }
