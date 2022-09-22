@@ -1,8 +1,10 @@
 ﻿using HitachiMedical.Platform.DataAccess.DataObject;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json.Serialization;
 
@@ -70,7 +72,7 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
         public object incompatibleAppData;
     }
     [Serializable()]
-    public class PrivateMainPS
+    public class PrivateMainPS : ISerializable
     {
         public PrivateAnnotation[] privateAnnotationList;
         public PrivateBackgroundImage[] privateBkImageList;
@@ -110,27 +112,121 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
         public object crossScalePosition;
         public float resize3dPrecentageEnable;
         public bool isResize3dPrecentageEnable;
-        private object /*byte[]*/ appData;
-        public void run()
-        {
-            byte[] data = appData as byte[];
-            BinaryFormatter formatter = new BinaryFormatter();
-            MemoryStream ms = new MemoryStream(data);
-            object obj = formatter.Deserialize(ms);
-            //Debug.Assert(false);
-        }
-        [JsonPropertyName("appData")]
-        public object MyAppData
-        {
-            get {
-                byte[] data = appData as byte[];
-                BinaryFormatter formatter = new BinaryFormatter();
-                MemoryStream ms = new MemoryStream(data);
-                object obj = formatter.Deserialize(ms);
-                return obj;
-            }
-        }
+        public Hashtable appData;
         public object incompatibleAppData;
-    }
 
+        protected PrivateMainPS(SerializationInfo info, StreamingContext context)
+        {
+            // TODO: SerializationInfoEnumerator GetEnumerator();
+            privateAnnotationList = (PrivateAnnotation[])info.GetValue("privateAnnotationList", typeof(PrivateAnnotation[]));
+            privateBkImageList = (PrivateBackgroundImage[])info.GetValue("privateBkImageList", typeof(PrivateBackgroundImage[]));
+            insetPSUidList = (List<string>)info.GetValue("insetPSUidList", typeof(List<string>));
+            sopClassUid = info.GetString("sopClassUid");
+            sopInstanceUid = info.GetString("sopInstanceUid");
+            outputColor = (BasePresentationState.OutputColorType)info.GetValue("outputColor", typeof(BasePresentationState.OutputColorType));
+            imageDisplaySettingUid = info.GetString("imageDisplaySettingUid");
+            caliperPosition = (BasePresentationState.DisplayLocation)info.GetValue("caliperPosition", typeof(BasePresentationState.DisplayLocation));
+            markerPosition = (BasePresentationState.OrientationMarkerPositions)info.GetValue("markerPosition", typeof(BasePresentationState.OrientationMarkerPositions));
+            expandToDisplay = info.GetBoolean("expandToDisplay");
+            windowWidth = info.GetSingle("windowWidth");
+            windowLevel = info.GetSingle("windowLevel");
+            displayWindowWidth = info.GetInt32("displayWindowWidth");
+            displayWindowLevel = info.GetInt32("displayWindowLevel");
+            nonLinearWidth = info.GetValue("nonLinearWidth", typeof(object));
+            nonLinearLevel = info.GetValue("nonLinearLevel", typeof(object));
+            topLeftHandCorner = (System.Drawing.Point)info.GetValue("topLeftHandCorner", typeof(System.Drawing.Point));
+            bottomRightHandCorner = (System.Drawing.Point)info.GetValue("topLeftHandCorner", typeof(System.Drawing.Point));
+            whiteSuppression = info.GetBoolean("whiteSuppression");
+            invertGrayscale = info.GetBoolean("invertGrayscale");
+            rotationAngle = info.GetSingle("rotationAngle");
+            horizontalFlip = info.GetBoolean("horizontalFlip");
+            verticalFlip = info.GetBoolean("verticalFlip");
+            horizontalShift = info.GetSingle("horizontalShift");
+            verticalShift = info.GetSingle("verticalShift");
+            resizePercentage = info.GetSingle("resizePercentage");
+            clipRegion = info.GetBoolean("clipRegion");
+            gridSpacing = info.GetInt32("gridSpacing");
+            crossbarInterval = info.GetInt32("crossbarInterval");
+            isCrossScaleEditable = info.GetBoolean("isCrossScaleEditable");
+            isGrayScalebarDisplayed = info.GetBoolean("isGrayScalebarDisplayed");
+            filterTypes = info.GetValue("filterTypes", typeof(object));
+            colorFraction = info.GetValue("colorFraction", typeof(object));
+            colorValues = info.GetValue("colorValues", typeof(object));
+            imageText = info.GetValue("imageText", typeof(object));
+            crossScalePosition = info.GetValue("crossScalePosition", typeof(object));
+            resize3dPrecentageEnable = info.GetSingle("resize3dPrecentageEnable");
+            isResize3dPrecentageEnable = info.GetBoolean("isResize3dPrecentageEnable");
+            var tmp = info.GetValue("appData", typeof(object));
+            if (tmp is byte[] v)
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                MemoryStream ms = new MemoryStream(v);
+                object obj = formatter.Deserialize(ms);
+                Debug.Assert(obj is Hashtable);
+                appData = (Hashtable)obj;
+            }
+            else
+            {
+                Debug.Assert(tmp == null);
+                appData = null;
+            }
+            incompatibleAppData = info.GetValue("incompatibleAppData", typeof(object));
+        }
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("privateAnnotationList", privateAnnotationList);
+            info.AddValue("privateBkImageList", privateBkImageList);
+            info.AddValue("insetPSUidList", insetPSUidList);
+            info.AddValue("sopClassUid", sopClassUid);
+            info.AddValue("sopInstanceUid", sopInstanceUid);
+            info.AddValue("outputColor", outputColor);
+            info.AddValue("imageDisplaySettingUid", imageDisplaySettingUid);
+            info.AddValue("caliperPosition", caliperPosition);
+            info.AddValue("markerPosition", markerPosition);
+            info.AddValue("expandToDisplay", expandToDisplay);
+            info.AddValue("windowWidth", windowWidth);
+            info.AddValue("windowLevel", windowLevel);
+            info.AddValue("displayWindowWidth", displayWindowWidth);
+            info.AddValue("displayWindowLevel", displayWindowLevel);
+            info.AddValue("nonLinearWidth", nonLinearWidth);
+            info.AddValue("nonLinearLevel", nonLinearLevel);
+            info.AddValue("topLeftHandCorner", topLeftHandCorner);
+            info.AddValue("bottomRightHandCorner", bottomRightHandCorner);
+            info.AddValue("whiteSuppression", whiteSuppression);
+            info.AddValue("invertGrayscale", invertGrayscale);
+            info.AddValue("rotationAngle", rotationAngle);
+            info.AddValue("horizontalFlip", horizontalFlip);
+            info.AddValue("verticalFlip", verticalFlip);
+            info.AddValue("horizontalShift", horizontalShift);
+            info.AddValue("verticalShift", verticalShift);
+            info.AddValue("resizePercentage", resizePercentage);
+            info.AddValue("clipRegion", clipRegion);
+            info.AddValue("gridSpacing", gridSpacing);
+            info.AddValue("crossbarInterval", crossbarInterval);
+            info.AddValue("isCrossScaleEditable", isCrossScaleEditable);
+            info.AddValue("isGrayScalebarDisplayed", isGrayScalebarDisplayed);
+            info.AddValue("filterTypes", filterTypes);
+            info.AddValue("colorFraction", colorFraction);
+            info.AddValue("colorValues", colorValues);
+            info.AddValue("imageText", imageText);
+            info.AddValue("crossScalePosition", crossScalePosition);
+            info.AddValue("resize3dPrecentageEnable", resize3dPrecentageEnable);
+            info.AddValue("isResize3dPrecentageEnable", isResize3dPrecentageEnable);
+            if (appData is Hashtable)
+            {
+                Debug.Assert(appData != null);
+                BinaryFormatter formatter = new BinaryFormatter();
+                MemoryStream ms = new MemoryStream();
+                formatter.Serialize(ms, appData);
+                var bytes = ms.ToArray();
+                info.AddValue("appData", bytes);
+            }
+            else
+            {
+                Debug.Assert(appData == null);
+                info.AddValue("appData", null);
+            }
+            info.AddValue("incompatibleAppData", incompatibleAppData);
+        }
+    }
 }

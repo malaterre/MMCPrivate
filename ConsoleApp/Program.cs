@@ -276,18 +276,6 @@ namespace ConsoleApp
                 long outputNrb = new FileInfo(output + ".nrb").Length;
                 DicomImagePrivatePS debug = oldObj as DicomImagePrivatePS;
                 var dbg2 = debug.privateMainPSList[0];
-                dbg2.run();
-                {
-                    var vizObj = dbg2.MyAppData;
-                    FileStream fs = new FileStream("viz.debug.nrb", FileMode.Create);
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fs, vizObj);
-                    fs.Close();
-                }
-
-                //debug.run();
-
-
                 Debug.Assert(inputNrb == outputNrb);
             }
         }
