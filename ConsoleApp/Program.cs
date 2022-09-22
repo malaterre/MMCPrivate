@@ -138,6 +138,7 @@ namespace ConsoleApp
                 try
                 {
                     BinaryFormatter formatter = new BinaryFormatter();
+                    // formatter.Binder = new HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppDataDeserializationBinder();
                     oldObj = formatter.Deserialize(ms);
                 }
                 catch (SerializationException e)
