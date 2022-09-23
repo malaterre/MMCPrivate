@@ -161,6 +161,8 @@ namespace HitachiMedical.Dream.Cabinet.ApplicationObjects
                 Debug.Assert(propInfo2.Length == 1);
                 MemberInfo memberInfo = propInfo2[0];
                 Debug.Assert(memberInfo.MemberType == MemberTypes.Field);
+                FieldInfo fieldInfo = (FieldInfo)memberInfo;
+                //Debug.Assert(fieldInfo.FieldType.Equals(entry.ObjectType));
                 ((FieldInfo)memberInfo).SetValue(this, value);
             }
 

@@ -93,6 +93,11 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
             var tmp = info.GetValue("appData", typeof(object));
             if (tmp is byte[] v)
             {
+                FileStream fs = new FileStream("PrivateInsetPS.orig.nrb", FileMode.Create);
+                fs.Write(v);
+                fs.Close();
+
+
                 BinaryFormatter formatter = new BinaryFormatter();
                 MemoryStream ms = new MemoryStream(v);
                 object obj = formatter.Deserialize(ms);
@@ -152,6 +157,11 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
                 formatter.Serialize(ms, appData);
                 var bytes = ms.ToArray();
                 info.AddValue("appData", bytes);
+
+                FileStream fs = new FileStream("PrivateInsetPS.modi.nrb", FileMode.Create);
+                fs.Write(bytes);
+                fs.Close();
+
             }
             else
             {

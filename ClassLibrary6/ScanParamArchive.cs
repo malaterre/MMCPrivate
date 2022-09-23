@@ -10,7 +10,7 @@ namespace HitachiMedical.Dream.ScanInterface
     public class ScanParamArchive
     {
         private Hashtable parameterTable;
-        //public Hashtable GetParameterTable() { return parameterTable;  }
+        public Hashtable GetParameterTable() { return parameterTable;  }
 
         [JsonPropertyName("parameterTable")]
         public SortedDictionary<string, object> MyHashtableSorted
