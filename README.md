@@ -12,3 +12,6 @@ gdcmraw -t 0029,10d7 input.dcm 10d7.raw
 ...
 
 Compare nrb or json as you like
+
+.vimrc:
+autocmd BufReadPost *.nrb silent %!netfleece -x -p -i "%"
