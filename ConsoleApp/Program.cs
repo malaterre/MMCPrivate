@@ -109,8 +109,10 @@ namespace ConsoleApp
             static void Main(string[] args)
         {
             //Serialize();
-            string input = "259.100e.raw";
+            string input = "7.10d7.raw";
             string output = "debug.raw";
+            //AppContext.SetSwitch("Switch.System.Data.AllowArbitraryDataSetTypeInstantiation", true);
+            AppContext.SetSwitch("Switch.System.Runtime.Serialization.SerializationGuard.AllowFileWrites", true);
             if (args.Length > 0)
                 input = args[0];
             if (args.Length > 1)

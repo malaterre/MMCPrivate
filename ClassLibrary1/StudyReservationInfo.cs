@@ -28,12 +28,4 @@ namespace HitachiMedical.Dream.Cabinet.ApplicationObjects
         public decimal HeadSARLimit { get; set; }
         public decimal DBdtLimit { get; set; }
     }
-
-    [Serializable()]
-    public class StudyAppData
-    {
-        public decimal sarLongTerm;
-        public object sarLongTermList;
-        public string controlledMode;
-    }
 }

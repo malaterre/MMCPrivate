@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json.Serialization;
 
 namespace HitachiMedical.Platform.DataAccess.DicomAccess
 {
@@ -107,6 +106,10 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
             var tmp = info.GetValue("appData", typeof(object));
             if (tmp is byte[] v)
             {
+                FileStream fs = new FileStream("PrivateMainPS.orig.nrb", FileMode.Create);
+                fs.Write(v);
+                fs.Close();
+
                 BinaryFormatter formatter = new BinaryFormatter();
                 MemoryStream ms = new MemoryStream(v);
                 object obj = formatter.Deserialize(ms);
@@ -171,6 +174,10 @@ namespace HitachiMedical.Platform.DataAccess.DicomAccess
                 formatter.Serialize(ms, appData);
                 var bytes = ms.ToArray();
                 info.AddValue("appData", bytes);
+
+                FileStream fs = new FileStream("PrivateMainPS.modi.nrb", FileMode.Create);
+                fs.Write(bytes);
+                fs.Close();
             }
             else
             {
