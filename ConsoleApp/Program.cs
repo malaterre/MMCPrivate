@@ -12,7 +12,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             //Serialize();
-            string input = "100.102f.raw";
+            string input = "256.102f.raw";
             string output = "debug.raw";
             AppContext.SetSwitch("Switch.System.Runtime.Serialization.SerializationGuard.AllowFileWrites", true);
             if (args.Length > 0)

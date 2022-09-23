@@ -218,29 +218,11 @@ namespace HitachiMedical.Dream.Cabinet.ApplicationObjects
     {
         public override Type BindToType(string assemblyName, string typeName)
         {
-            Type typeToDeserialize = null;
-
-            // For each assemblyName/typeName that you want to deserialize to
-            // a different type, set typeToDeserialize to the desired type.
-            String assemVer1 = Assembly.GetExecutingAssembly().FullName;
-            // "ApplicationObjects, Version=1.0.5611.23583, Culture=neutral, PublicKeyToken=null"
-            String typeVer1 = "HitachiMedical.Dream.Cabinet.ApplicationObjects.ImageAppData";
-
-            if (assemblyName == assemVer1 && typeName == typeVer1)
-            {
-                // To use a type from a different assembly version,
-                // change the version number.
-                // To do this, uncomment the following line of code.
-                // assemblyName = assemblyName.Replace("1.0.0.0", "2.0.0.0");
-
-                // To use a different type from the same assembly,
-                // change the type name.
-                typeName = "ImageAppData";
-            }
-
-            // The following line of code returns the type.
-            typeToDeserialize = Type.GetType(String.Format("{0}, {1}",
+            Type typeToDeserialize = Type.GetType(String.Format("{0}, {1}",
                 typeName, assemblyName));
+
+            Console.WriteLine(String.Format("Input is {0}, {1}", typeName, assemblyName));
+            Console.WriteLine(String.Format("Output is {0}", typeToDeserialize.AssemblyQualifiedName));
 
             return typeToDeserialize;
         }
